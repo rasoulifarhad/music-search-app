@@ -12,15 +12,23 @@ export class SpotifyService {
 
   constructor(public http: HttpClient) { }
 
-  getTrack(id : string) : Observable<any> {
+  getAlbum(id: string) : Observable<any[]> {
+    return this.query(`/albums/${id}`);
+  }
+
+  getArtist(id: string) : Observable<any[]> {
+    return this.query(`/artists/${id}`);
+  }
+
+  getTrack(id : string) : Observable<any[]> {
     return this.query(`/tracks/${id}`)
   }
 
-  searchTrack(query: string) {
+  searchTrack(query: string) : Observable<any[]>{
     return this.search(query, "track")
   }
 
-  search(query: string, type: string) {
+  search(query: string, type: string) : Observable<any[]> {
     return this.query(`/search`, [`q=${query}`, `type=${type}`])
   }
 
