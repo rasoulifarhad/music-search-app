@@ -38,3 +38,36 @@ clicked
 - /artists/:id - artist info, represented by a Spotify ID
 - /albums/:id - album info, with a list of tracks using the Spotify ID
 - /tracks/:id - track info and preview, also using the Spotify ID
+
+
+See https://github.com/NeTa05/Ng-Book-2/tree/master
+See https://dev.to/this-is-angular/demystifying-angular-route-guards-a-beginners-guide-to-secure-navigation-597b
+See https://angular.io/guide/router
+
+
+      
+```      
+ng g <schematic>
+
+    
+
+    app-shell
+    application
+    class
+    component
+    config
+    directive
+    enum
+    environments
+    guard
+    interceptor
+    interface
+    library
+    module
+    pipe
+    resolver
+    service
+    service-worker
+    web-worker
+
+```

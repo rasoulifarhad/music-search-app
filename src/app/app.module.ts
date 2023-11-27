@@ -8,14 +8,14 @@ import { ArtistComponent } from './artist/artist.component';
 import { AlbumComponent } from './album/album.component';
 import { TrackComponent } from './track/track.component';
 import { LoginComponent } from './login/login.component';
-import { AuthService } from './auth.service';
 import { ProtectedComponent } from './protected/protected.component';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
-import { ProductsComponent } from './products/products.component';
 import { Routes } from '@angular/router';
 import { loggedInGuard } from './logged-in.guard';
+import { routes as childRoutes, ProductsModule } from './products/products.module';
+import { ProductsComponent } from './products/products.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -32,7 +32,8 @@ const routes: Routes = [
   },
   {
     path: 'products',
-    component: ProductsComponent
+    component: ProductsComponent,
+    children: childRoutes
   }
 ]
 
@@ -49,12 +50,12 @@ const routes: Routes = [
     HomeComponent,
     AboutComponent,
     ContactComponent,
-    ProductsComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    ProductsModule
 
   ],
   providers: [],
