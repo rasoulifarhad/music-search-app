@@ -7,36 +7,15 @@ import { SearchComponent } from './search/search.component';
 import { ArtistComponent } from './artist/artist.component';
 import { AlbumComponent } from './album/album.component';
 import { TrackComponent } from './track/track.component';
-import { LoginComponent } from './login/login.component';
-import { ProtectedComponent } from './protected/protected.component';
-import { HomeComponent } from './home/home.component';
-import { AboutComponent } from './about/about.component';
-import { ContactComponent } from './contact/contact.component';
 import { Routes } from '@angular/router';
-import { loggedInGuard } from './logged-in.guard';
-import { routes as childRoutes, ProductsModule } from './products/products.module';
-import { ProductsComponent } from './products/products.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full'},
-  { path: 'home', component: HomeComponent},
-  { path: 'about', component: AboutComponent},
-  { path: 'contact', component: ContactComponent},
-  { path:'cotactus', redirectTo: 'contact'},
-  { path: 'login', component: LoginComponent},
-  {
-    path: 'protected',
-    component: ProtectedComponent,
-    canActivate: [loggedInGuard]
-
-  },
-  {
-    path: 'products',
-    component: ProductsComponent,
-    children: childRoutes
-  }
-]
-
+  { path: '', redirectTo: 'search', pathMatch: 'full' },
+  { path: 'search', component: SearchComponent },
+  { path: 'artists/:id', component: ArtistComponent },
+  { path: 'tracks/:id', component: TrackComponent },
+  { path: 'albums/:id', component: AlbumComponent },
+];
 
 @NgModule({
   declarations: [
@@ -45,17 +24,11 @@ const routes: Routes = [
     ArtistComponent,
     AlbumComponent,
     TrackComponent,
-    LoginComponent,
-    ProtectedComponent,
-    HomeComponent,
-    AboutComponent,
-    ContactComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ProductsModule
 
   ],
   providers: [],
