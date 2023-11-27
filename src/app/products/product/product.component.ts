@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-product',
@@ -6,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./product.component.css']
 })
 export class ProductComponent {
+
+  id!: string;
+
+  constructor(private route: ActivatedRoute) {
+    route.params.subscribe(params => {this.id = params['id'];});
+  }
 
 }
